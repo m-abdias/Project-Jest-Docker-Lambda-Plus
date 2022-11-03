@@ -32,3 +32,18 @@ curl http://0.0.0.0:3000/
 # Pasta scripts
 # arquivo create-bucket.sh -> escreve do jeito que ta lá, e roda o comando abaixo:
 sh scripts/create-bucket.sh
+
+## Para ver se o docker ta rodando 
+docker ps   
+
+# rodar o docker-compose up
+docker-compose up
+
+## rodar o localhost
+curl "0.0.0.0:4566/health"
+
+## formatar o resultado no formato json
+curl "0.0.0.0:4566/health" | jq
+
+## fazer o servidor olhar para o localstack ao invés de olhar para a aws
+# vai alter o arquivo create-bucket.sh 
