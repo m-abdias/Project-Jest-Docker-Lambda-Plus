@@ -8,12 +8,13 @@ const isLocal = process.env.IS_OFFLINE
 
 // configuração do localstack
 if (isLocal) {
-  AWS.config.update({
-    credentials: {
-      accessKeyId: 'test',
-      secretAccessKey: 'test'
-    }
-  })
+  // não precisa configurar quando as variáveis já estão setadas no compose
+  // AWS.config.update({
+  //   credentials: {
+  //     accessKeyId: 'test',
+  //     secretAccessKey: 'test'
+  //   }
+  // })
 
   const host = process.env.LOCALSTACK_HOST || 'localhost'
 

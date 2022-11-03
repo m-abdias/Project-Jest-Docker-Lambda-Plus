@@ -63,3 +63,39 @@ docker-compose up
 
 ## para o docker compose e roda o Jest
 npm i -D jest@28
+
+## configura o Dockerfile, factory e serverless e depois roda o comando
+docker-compose up --build
+
+## para ver se o docker criou algum volume
+docker volume ls
+
+## se criou, rode o comando abaixo para excluir (com o nome do volume criado):
+docker volume rm tooling-jest-docker-plus-parte02_nodemodules
+
+## remover todos os volumes 
+docker volume rm $(docker volume ls -q) -f
+
+## remove a node modules
+rm -rf node_modules
+
+## entra na pasta e roda o comando
+docker-compose up --build
+
+## rodar o projeto na aws
+# no arquivo de serverless, em provider, adiciona as informações abaixo:
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: s3:ListAllMyBuckets
+          Resource: "*"
+
+## roda o npm ci --silent
+npm ci --silent
+
+## depois faz deploy
+sls deploy
+
+## remover o projeto na aws
+sls remove
