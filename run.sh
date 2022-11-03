@@ -47,3 +47,19 @@ curl "0.0.0.0:4566/health" | jq
 
 ## fazer o servidor olhar para o localstack ao invés de olhar para a aws
 # vai alter o arquivo create-bucket.sh 
+
+
+# para remover node_modules
+rm -rf node_modules
+
+# para remover docker-compose
+docker-compose down
+
+## Para restaurar os pacotes
+npm ci --silent
+
+## Assim que restaurar da um docker-compose up
+docker-compose up
+
+## para o docker compose e roda o Jest
+npm i -D jest@28
